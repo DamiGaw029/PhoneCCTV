@@ -1,4 +1,4 @@
-# YOLO-Person-Detection-CCTV
+# Phone CCTV (YOLO-Person-Detection)
 
 ## Overview
 
@@ -27,7 +27,7 @@ By leveraging the DroidCam mobile app to stream video over Wi-Fi and running a P
 - DroidCam app (Android or iOS) running on your phone
 - - Python packages:
   ```bash
-  pip install opencv-python numpy pymodbus pypylon
+  pip install ultralytics opencv-python numpy
 
 ## How to use
 
