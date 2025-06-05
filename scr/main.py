@@ -3,7 +3,7 @@ from ultralytics import YOLO  # Ultralytics YOLO – object detection model
 
 # URL to the MJPEG stream from DroidCam running on the phone
 # Make sure the IP address is current
-STREAM_URL = "http://192.168.X.X:4747/video"
+STREAM_URL = "http://<your_phone_ip>:4747/video"
 # STREAM_URL = 0  # Use 0 for USB webcam
 
 # Load pre-trained YOLOv8 model

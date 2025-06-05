@@ -2,7 +2,7 @@
 import numpy as np
 import cv2
 
-video_source = "http://192.168.137.194:4747/video"
+video_source = "http://<your_phone_ip>:4747/video"
 
 # initialize the HOG descriptor/person detector
 hog = cv2.HOGDescriptor()
