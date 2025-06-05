@@ -25,3 +25,14 @@ By leveraging the DroidCam mobile app to stream video over Wi-Fi and running a P
 - [Ultralytics YOLOv8](https://docs.ultralytics.com/)
 - OpenCV
 - DroidCam app (Android or iOS) running on your phone
+- - Python packages:
+  ```bash
+  pip install opencv-python numpy pymodbus pypylon
+
+## How to use
+
+1. Launch the DroidCam app on your phone and start the camera.
+2. Replace the IP address in the main.py with your phone's current local IP:
+   STREAM_URL = "http://<your_phone_ip>:4747/video"
+3. Run main.py
+  
