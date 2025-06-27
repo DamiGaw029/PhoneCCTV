@@ -1,17 +1,23 @@
 import cv2  # OpenCV – library for image and video processing
 from ultralytics import YOLO  # Ultralytics YOLO – object detection model
 
-# URL to the MJPEG stream from DroidCam running on the phone
-# Make sure the IP address is current
-STREAM_URL = "http://<your_phone_ip>:4747/video"
-# STREAM_URL = 0  # Use 0 for USB webcam
+# Prompt user to enter the IP address and port
+ip = input("Enter the camera IP address (e.g., 192.168.1.100): ").strip()
+port = input("Enter the port (default is 4747): ").strip()
+if not port:
+    port = "4747"
+
+# Build the MJPEG stream URL from DroidCam
+STREAM_URL = f"http://{ip}:{port}/video"
 
 # Load pre-trained YOLOv8 model
-# "yolov8n.pt" = nano version, fast and lightweight
-model = YOLO("yolov8n.pt")
+model = YOLO("yolov8n.pt")  # nano version – fast and lightweight
 
 # Open the video stream from phone or webcam
 cap = cv2.VideoCapture(STREAM_URL)
+
+# Frame counter for skipping
+frame_count = 0
 
 while True:
     # Read a single video frame
@@ -21,6 +27,13 @@ while True:
     if not ret:
         print("No image. Check camera connection.")
         break
+
+    # Increase frame counter
+    frame_count += 1
+
+    # Skip every other frame (process every 2nd frame)
+    if frame_count % 3 != 0:
+        continue
 
     # Run YOLO detection on the frame
     results = model(frame, verbose=False)
@@ -42,7 +55,7 @@ while True:
             )
 
     # Show the frame with detected people
-    cv2.imshow("YOLO - Persons Only", frame)
+    cv2.imshow("Detect People", frame)
 
     # Exit loop when 'q' key is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
