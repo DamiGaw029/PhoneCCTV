@@ -32,7 +32,6 @@ By leveraging the DroidCam mobile app to stream video over Wi-Fi and running a P
 ## How to use
 
 1. Launch the DroidCam app on your phone and start the camera.
-2. Replace the IP address in the main.py with your phone's current local IP:
-   STREAM_URL = "http://<your_phone_ip>:4747/video"
-3. Run main.py
+2. Run main.py
+3. Enter your IP and port
   
